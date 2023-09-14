@@ -10,9 +10,9 @@ This Pipeline can be used by beginners with zero bioinformatics background. By i
 2. Run the script
    1) Install qiime2 and activate qiime2.
    2) Install rarefy plugin.
-   3) 
+      
       pip install git+https://github.com/yxia0125/q2-repeat-rarefy.git
-   4) Run the script. See help by:
+   3) Run the script. See help by:
       python3 qiime-autopipeline --help
 
       --path               Requied, full path that the fastq.gz files were saved
@@ -36,7 +36,7 @@ This Pipeline can be used by beginners with zero bioinformatics background. By i
        Example:
        python3 QIIME-workingnew.py --path=/home/test  --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt  --train_classifier=yes --remove_mito_chlo=yes
 
-   6) If train_classifier is needed, the script will ask for the name of silva seq and name of silva tax. If train_classifier is not needed, thescript will ask for the name of trained taxa file.
+   4) If train_classifier is needed, the script will ask for the name of silva seq and name of silva tax. If train_classifier is not needed, thescript will ask for the name of trained taxa file.
 3. Result
    
    All the intermedite files will be saved in work folder. You will mainly need to check the output folder. Use below link to open .qzv files.
