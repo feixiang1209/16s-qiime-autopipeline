@@ -7,6 +7,8 @@ This Pipeline can be used by beginners with zero bioinformatics background. By i
       Sample names in the meta data file should match with the fastq.gz (name before the index, example "WW1_WW1_UDP0297-UDP0300_L001_R1_001.fastq.gz", put "WW1_WW1" in the meta data file).  The second          column should not consist of exactly one value.
    3) If it is the first time using the primer, train classifier is needed. Please download the silva seq and taxa files from the link below, and put them in the same folder above.
       If it is not the first time, a trained classifier file shoude put in the same folder.
+
+      https://kaust-my.sharepoint.com/:f:/g/personal/zhaox0b_kaust_edu_sa/EtkYH84FycpPkdRjF1Wwe1EBGVj-bGasFfXEk2b_zobz-A?e=rhOWof
 2. Run the script
    1) Install qiime2 and activate qiime2.
    2) Install rarefy plugin.
