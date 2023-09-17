@@ -16,9 +16,9 @@ This Pipeline can be used by beginners with zero bioinformatics background. By i
       
       Example:
       
-      python3 QIIME-workingnew.py --path=/home/test  --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt  --train_classifier=yes --remove_mito_chlo=yes
+      python3 16s-qiime-qutopipeline.py --path=/home/test  --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt  --train_classifier=yes --remove_mito_chlo=yes
       
-      See help by:   python3 qiime-autopipeline --help
+      See help by:   python3 16s-qiime-qutopipeline.py --help
 
       --path               Requied, full path that the fastq.gz files were saved
       
