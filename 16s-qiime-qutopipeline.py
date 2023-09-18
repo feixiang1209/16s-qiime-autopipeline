@@ -370,7 +370,7 @@ os.system(cmd_mk_beta)
 
 cmd_alpha_1="qiime diversity alpha-group-significance --i-alpha-diversity %s/core_metrics_results/faith_pd_vector.qza --m-metadata-file %s/%s --o-visualization %s/faith_pd_group_significance" %(work,path,meta_file, alpha_diversity)
 cmd_alpha_2="qiime diversity alpha-group-significance  --i-alpha-diversity %s/core_metrics_results/evenness_vector.qza --m-metadata-file %s/%s  --o-visualization %s/evenness_group_significance" %(work,path,meta_file, alpha_diversity)
-cmd_alpha_3="qiime diversity alpha-group-significance --i-alpha-diversity %s/core_metrics_results/shannon_vector.qza --m-metadata-file %s/$s --o-visualization %s/shannon_group_significance"%(work,path,meta_file, alpha_diversity)
+cmd_alpha_3="qiime diversity alpha-group-significance --i-alpha-diversity %s/core_metrics_results/shannon_vector.qza --m-metadata-file %s/%s --o-visualization %s/shannon_group_significance"%(work,path,meta_file, alpha_diversity)
 
 print(cmd_alpha_1)
 os.system(cmd_alpha_1)
@@ -403,7 +403,7 @@ os.system(cmd_beta_4)
 
 ### Alpha Rarefaction Plots
 
-cmd_alpha_rarefaction="qiime diversity alpha-rarefaction --i-table %s/core_metrics_results/rarefied_table.qza --p-max-depth %s --m-metadata-file %s/%s --p-steps %s --o-visualization %s/alpha_rarefaction.qzv" %(work,work, meta_file,sampling_depth,rarefy_repeat_times, output)
+cmd_alpha_rarefaction="qiime diversity alpha-rarefaction --i-table %s/core_metrics_results/rarefied_table.qza --p-max-depth %s --m-metadata-file %s/%s --p-steps %s --o-visualization %s/alpha_rarefaction.qzv" %(work,sampling_depth,path, meta_file,rarefy_repeat_times, output)
 print(cmd_alpha_rarefaction)
 os.system(cmd_alpha_rarefaction)
 
