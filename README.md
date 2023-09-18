@@ -1,4 +1,8 @@
 # 16s-qiime-autopipeline
+# AUTHOR: Xiang Zhao
+# Department: Bioscience Core Lab, King Abdullah University of Science and Technology
+# Email:  xiang.zhao@kaust.edu.sa
+
 This Pipeline can be used by beginners with zero bioinformatics background. By inputting one command it will finish all the analysis automatically, generating the feature table, diversity analysis and taxa-bar-plots, Phylogenetic tree, etc.
 
 1. Before starting
