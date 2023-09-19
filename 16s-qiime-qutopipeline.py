@@ -384,8 +384,8 @@ os.system(cmd_alpha_3)
 
 cmd_beta_1="cp %s/core_metrics_results/unweighted_unifrac_emperor.qzv %s/unweighted_unifrac_emperor.qzv" %(work,beta_diversity)
 cmd_beta_2="cp %s/core_metrics_results/bray_curtis_emperor.qzv %s/bray_curtis_emperor.qzv" %(work,beta_diversity)
-cmd_beta_2="cp %s/core_metrics_results/jaccard_emperor.qzv %s/jaccard_emperor.qzv" %(work,beta_diversity)
-cmd_beta_2="cp %s/core_metrics_results/weighted_unifrac_emperor.qzv %s/weighted_unifrac_emperor.qzv" %(work,beta_diversity)
+cmd_beta_3="cp %s/core_metrics_results/jaccard_emperor.qzv %s/jaccard_emperor.qzv" %(work,beta_diversity)
+cmd_beta_4="cp %s/core_metrics_results/weighted_unifrac_emperor.qzv %s/weighted_unifrac_emperor.qzv" %(work,beta_diversity)
 
 print(cmd_beta_1)
 os.system(cmd_beta_1)
