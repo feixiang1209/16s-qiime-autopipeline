@@ -14,15 +14,17 @@ iii.	If it is the first time using the primer set, the classifier must be traine
 https://kaust-my.sharepoint.com/:f:/g/personal/zhaox0b_kaust_edu_sa/EtkYH84FycpPkdRjF1Wwe1EBGVj-bGasFfXEk2b_zobz-A?e=rhOWof
 
 2.	Running the script
-3.	
-i.	Install miniconda, qiime2 and activate qiime2, following the instructions in the links below:
+   
+i.	Install miniconda, qiime2(only needed for the first time) and activate qiime2, following the instructions in the links below:
+
            https://educe-ubc.github.io/conda.html
   	
            https://educe-ubc.github.io/qiime2.html
   	
-ii.	Install the rarefy plugin:
+ii.	Install the rarefy plugin(only needed for the first time):
 
            pip install git+https://github.com/yxia0125/q2-repeat-rarefy.git
+           
 iii.	Run the script.
 
 Example:
