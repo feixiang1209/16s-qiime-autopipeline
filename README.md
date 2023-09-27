@@ -3,57 +3,42 @@
 # Department: Bioscience Core Lab, King Abdullah University of Science and Technology
 # Email:  xiang.zhao@kaust.edu.sa
 
-This Pipeline can be used by beginners with zero bioinformatics background. By inputting one command it will finish all the analysis automatically, generating the feature table, diversity analysis and taxa-bar-plots, Phylogenetic tree, etc.
-
-1. Before starting
-   1) Put all the fastq.gz files in one folder.
-   2) Create a meta data file in the same folder. Recommend to use tab delimited .txt format. It should contains at least two columns, the first column should be SampleID (or similar). 
-      Sample names in the meta data file should match with the fastq.gz (name before the index, example "WW1_WW1_UDP0297-UDP0300_L001_R1_001.fastq.gz", put "WW1_WW1" in the meta data file).  The second          column should not consist of exactly one value.
-   3) If it is the first time using the primer, train classifier is needed. Please download the silva seq and taxa files from the link below, and put them in the same folder above.
-      If it is not the first time, a trained classifier file shoude put in the same folder.
-
-      https://kaust-my.sharepoint.com/:f:/g/personal/zhaox0b_kaust_edu_sa/EtkYH84FycpPkdRjF1Wwe1EBGVj-bGasFfXEk2b_zobz-A?e=rhOWof
-2. Run the script
-   1) Install qiime2 and activate qiime2.
-   2) Install rarefy plugin.
-      
-      pip install git+https://github.com/yxia0125/q2-repeat-rarefy.git
-   3) Run the script
-      
-      Example:
-      
-      python3 16s-qiime-qutopipeline.py --path=/home/test  --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt  --train_classifier=yes --remove_mito_chlo=yes
-      
-      See help by:   python3 16s-qiime-qutopipeline.py --help
-
-      --path               Requied, full path that the fastq.gz files were saved
-      
-      --cutpf              Requied, Forward primer sequence for cutadaptor
-      
-      --cutpr              Requied, Reverse primer sequence for cutadaptor
-      
-      --truncf             Requied, trunc length for Read1 in DADA2
-      
-      --truncr             Requied, trunc length for Read2 in DADA2
-      
-      --meta               Requied, name of the meta file
-      
-      --train_classifier   Requied, Yes or No, whether to train classifier
-      
-      --remove_mito_chlo   Optional, Yes or No, default no, whether to remove mitochondria and chloroplast      
+This script is designed for beginners with no bioinformatics background and automatically performs the entire analysis pipeline through the input of a single command. The output of the pipeline includes feature tables and taxa bar-plots (options for normalized and non-normalized read counts and mitochondrial and chloroplast sequence removal), rep_seqs file, diversity analysis (alpha and beta diversity), phylogenetic trees (rooted and unrooted), rarefaction curve and a trained classifier file.
+1.	Before you start
+i.	Put all the fastq.gz files in one folder.
+ii.	Create a metadata file in the same folder. It is recommended to use tab delimited .txt format. The file should contain at least two columns. The first column should be dedicated to the sample ID (label the column SampleID, or similar). Sample IDs in the metadata file must match with the fastq.gz file names (name before the index, e.g., "WW1_WW1_UDP0297-UDP0300_L001_R1_001.fastq.gz", "WW1_WW1" is the sample ID that must match the sample ID entry in the metadata file). At least one entry in the second column must be unique. For further details on metadata requirements, please refer to the Qiime tutorial at https://docs.qiime2.org/2022.11/tutorials/metadata/
+iii.	If it is the first time using the primer set, the classifier must be trained. Please download the silva seq and taxa files from the link below and place them in the same folder as the files above. If it is not the first time, an existing trained classifier file must be placed in the same folder.
+https://kaust-my.sharepoint.com/:f:/g/personal/zhaox0b_kaust_edu_sa/EtkYH84FycpPkdRjF1Wwe1EBGVj-bGasFfXEk2b_zobz-A?e=rhOWof
+2.	Running the script
+i.	Install miniconda, qiime2 and activate qiime2, following the instructions in the links below:
+https://educe-ubc.github.io/conda.html
+           https://educe-ubc.github.io/qiime2.html
+ii.	Install the rarefy plugin:
+pip install git+https://github.com/yxia0125/q2-repeat-rarefy.git
+iii.	Run the script.
+Example:
+python3 16s-qiime-qutopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --remove_mito_chlo=yes
+See help by: python3 16s-qiime-qutopipeline.py --help
+--path: Required, full path where the fastq.gz files were saved
+--cutpf: Required, Forward primer sequence for cutadaptor
+--cutpr: Required, Reverse primer sequence for cutadaptor
+--truncf: Required, length to which Read1 should be trimmed to in DADA2
+--truncr: Required, length to which Read2 should be trimmed to in DADA2
+--meta: Required, name of the meta file
+--train_classifier: Required, Yes or No, depending on whether to the classifier needs to be trained
+--remove_mito_chlo: Optional, Yes or No, default is no; if YES, choose whether mitochondrial sequences, chloroplast sequences or both should be removed
+iv.	If train_classifier is needed, the script will ask for the names of the silva seq and silva tax files. If train_classifier is not needed, the script will ask for the name of the existing trained taxa file.
+3.	Results
+All the intermediate files will be saved in the “work” folder. The files-of-interest can mainly be found in the “output” folder. Use the following link to open .qzv files: https://view.qiime2.org/
+i.	dada2_rep_seqs folder: Contains the rep_seqs file in fasta format.
+ii.	dada2_stats folder: Contains a table with the denoising status. The diversity analysis and read normalization are based on the lowest read count from the “non-chimeric numeric” column in the table.
+iii.	feature_table folder: Contains the feature table.
+iv.	taxa-bar-plots.qzv: Contains relative abundance bar plots at various taxonomic levels.
+v.	trained_classifier.qza: If train_classifier was enabled, this file will be here. You can use this file in the future for datasets that were generated with the same primers.
+vi.	rarefy_feature_table: Output after read normalization to the sample with the lowest read count.
+vii.	filtered: Output of the results after removal of mitochondrial and chloroplast sequences. Only available if remove_mito_chlo was enabled.
+viii.	diversity: Diversity analysis, including alpha diversity and beta diversity.
 
 
-   4) If train_classifier is needed, the script will ask for the name of silva seq and name of silva tax. If train_classifier is not needed, thescript will ask for the name of trained taxa file.
-3. Result
-   
-   All the intermedite files will be saved in work folder. You will mainly need to check the output folder. Use below link to open .qzv files.
-   https://view.qiime2.org/
-   
-   1) dada2_rep_seqs folder: You will find the rep_seqs in fasta format.
-   2) dada2_stats folder: You will see a table with the denoising status. All the diversity analysis and normalize reads is based on the lowest reads from the non-chimeric numeric.
-   3) feature_table folder: Contains the feature table.
-   4) taxa-bar-plots.qzv: Bar plot of taxanomic.
-   5) trained_classifier.qza: If train_classifier is enabled, this file will be here. You can use this file for future if using the same primer.
-   6) rarefy_feature_table: Output after normalize the reads based on the lowest reads of the samples.
-   7) filtered: Output of the result after removing the mitochondria and chloroplast. Only available if remove_mito_chlo is enabled.
-   8) diversity: Diversity analysis, including alpha diversity and beta diversity.
+
+
