@@ -27,27 +27,48 @@ ii.	Install the rarefy plugin(only needed for the first time):
            
 iii.	Run the script.
 
+
 Example:
+
 python3 16s-qiime-qutopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --remove_mito_chlo=yes
+
 See help by: python3 16s-qiime-qutopipeline.py --help
+
 --path: Required, full path where the fastq.gz files were saved
+
 --cutpf: Required, Forward primer sequence for cutadaptor
+
 --cutpr: Required, Reverse primer sequence for cutadaptor
+
 --truncf: Required, length to which Read1 should be trimmed to in DADA2
+
 --truncr: Required, length to which Read2 should be trimmed to in DADA2
+
 --meta: Required, name of the meta file
+
 --train_classifier: Required, Yes or No, depending on whether to the classifier needs to be trained
+
 --remove_mito_chlo: Optional, Yes or No, default is no; if YES, choose whether mitochondrial sequences, chloroplast sequences or both should be removed
+
 iv.	If train_classifier is needed, the script will ask for the names of the silva seq and silva tax files. If train_classifier is not needed, the script will ask for the name of the existing trained taxa file.
+
 5.	Results
+   
 All the intermediate files will be saved in the “work” folder. The files-of-interest can mainly be found in the “output” folder. Use the following link to open .qzv files: https://view.qiime2.org/
 i.	dada2_rep_seqs folder: Contains the rep_seqs file in fasta format.
+
 ii.	dada2_stats folder: Contains a table with the denoising status. The diversity analysis and read normalization are based on the lowest read count from the “non-chimeric numeric” column in the table.
+
 iii.	feature_table folder: Contains the feature table.
+
 iv.	taxa-bar-plots.qzv: Contains relative abundance bar plots at various taxonomic levels.
+
 v.	trained_classifier.qza: If train_classifier was enabled, this file will be here. You can use this file in the future for datasets that were generated with the same primers.
+
 vi.	rarefy_feature_table: Output after read normalization to the sample with the lowest read count.
+
 vii.	filtered: Output of the results after removal of mitochondrial and chloroplast sequences. Only available if remove_mito_chlo was enabled.
+
 viii.	diversity: Diversity analysis, including alpha diversity and beta diversity.
 
 
