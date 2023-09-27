@@ -52,9 +52,10 @@ See help by: python3 16s-qiime-qutopipeline.py --help
 
 iv.	If train_classifier is needed, the script will ask for the names of the silva seq and silva tax files. If train_classifier is not needed, the script will ask for the name of the existing trained taxa file.
 
-5.	Results
+3.	Results
    
 All the intermediate files will be saved in the “work” folder. The files-of-interest can mainly be found in the “output” folder. Use the following link to open .qzv files: https://view.qiime2.org/
+
 i.	dada2_rep_seqs folder: Contains the rep_seqs file in fasta format.
 
 ii.	dada2_stats folder: Contains a table with the denoising status. The diversity analysis and read normalization are based on the lowest read count from the “non-chimeric numeric” column in the table.
