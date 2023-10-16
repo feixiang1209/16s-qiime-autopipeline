@@ -30,7 +30,7 @@ iii.	Run the script.
 
 Example:
 
-python3 16s-qiime-qutopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --remove_mito_chlo=yes
+python3 16s-qiime-autopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --remove_mito_chlo=yes
 
 See help by: python3 16s-qiime-qutopipeline.py --help
 
