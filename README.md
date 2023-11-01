@@ -60,13 +60,13 @@ i.	dada2_rep_seqs folder: Contains the rep_seqs file in fasta format.
 
 ii.	dada2_stats folder: Contains a table with the denoising status. The diversity analysis and read normalization are based on the lowest read count from the “non-chimeric numeric” column in the table.
 
-iii.	feature_table folder: Contains the feature table.
+iii.	feature_table folder: Contains the feature table before normalization.
 
-iv.	taxa-bar-plots.qzv: Contains relative abundance bar plots at various taxonomic levels.
+iv.	taxa-bar-plots.qzv: Contains relative abundance bar plots at various taxonomic levels before normalization.
 
 v.	trained_classifier.qza: If train_classifier was enabled, this file will be here. You can use this file in the future for datasets that were generated with the same primers.
 
-vi.	rarefy_feature_table: Output after read normalization to the sample with the lowest read count.
+vi.	rarefy_feature_table: Output after read normalization to the sample with the lowest read count after denoising.
 
 vii.	filtered: Output of the results after removal of mitochondrial and chloroplast sequences. Only available if remove_mito_chlo was enabled.
 
