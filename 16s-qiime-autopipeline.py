@@ -105,7 +105,7 @@ else: print("Remove primer done.")
 
 ##Denoising
 
-cmd_denoising="qiime dada2 denoise-paired --i-demultiplexed-seqs %s/trimmed-seqs.qza  --o-table %s/table.qza --o-representative-sequences %s/rep-seqs-dada2.qza --o-denoising-stats %s/dada2-stats.qza --p-trim-left-f 0 --p-trim-left-r 0 --p-trunc-len-f %s --p-trunc-len-r %s" %(work,work,work,work, Trunc_F, Trunc_R)
+cmd_denoising="qiime dada2 denoise-paired --i-demultiplexed-seqs %s/trimmed-seqs.qza  --o-table %s/table.qza --o-representative-sequences %s/rep-seqs-dada2.qza --o-denoising-stats %s/dada2-stats.qza --p-trim-left-f 0 --p-trim-left-r 0 --p-trunc-len-f %s --p-trunc-len-r %s --p-n-threads 0" %(work,work,work,work, Trunc_F, Trunc_R)
 
 
 
