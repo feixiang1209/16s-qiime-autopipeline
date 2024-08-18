@@ -30,7 +30,16 @@ iii.	Run the script.
 
 Example:
 
-python3 16s-qiime-autopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --remove_mito_chlo=yes
+python3 16s-qiime-autopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --database_seq=silva-138.1-ssu-nr99-seqs.qza --database_tax=silva-138.1-ssu-nr99-tax.qza --remove_mito_chlo=yes
+
+or
+
+python3 16s-qiime-autopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=no --pre_trained_classifier=trained_classifier.qza --remove_mito_chlo=yes
+
+
+
+
+
 
 See help by: python3 16s-qiime-qutopipeline.py --help
 
@@ -46,11 +55,15 @@ See help by: python3 16s-qiime-qutopipeline.py --help
 
 --meta: Required, name of the meta file
 
---train_classifier: Required, Yes or No, depending on whether to the classifier needs to be trained
+--train_classifier: Required, Yes or No, depending on whether the classifier needs to be trained
+--database_seq: Optional. If train_classifier is yes, put the name of the database sequence file
+--database_tax: Optional. If train_classifier is yes, put the name of the database taxonomy file
+--pre_trained_classifier: Optional. If train_classifier is no, put the name of the pre_trained_classifier
 
 --remove_mito_chlo: Optional, Yes or No, default is no; if YES, choose whether mitochondrial sequences, chloroplast sequences or both should be removed
 
-iv.	If train_classifier is needed, the script will ask for the names of the silva seq and silva tax files. If train_classifier is not needed, the script will ask for the name of the existing trained taxa file.
+iv.	If train_classifier is needed, put "--train_classifier=yes", options database_seq and database_tax will become mandatory. Name of the database sequence file and taxonomy file need to be filled. (example: --database_seq=silva-138.1-ssu-nr99-seqs.qza --database_tax=silva-138.1-ssu-nr99-tax.qza). 
+      If train_classifier is not needed, put "--train_classifier=no", option pre_trained_classifier will become mandatory. Name of the pre_trained_classifier needs to be filled.  (example: --pre_trained_classifier=trained_classifier.qza)
 
 3.	Results
    
