@@ -16,7 +16,6 @@ import sys
 
 parser = argparse.ArgumentParser(description='cutadaptor_DAD2_assigntaxa')
 
-
 parser.add_argument('--path', type=str,required=True,help='Requied, full path that the fastq or fastq.gz files were saved')
 parser.add_argument('--cutpf', type=str,required=True,help='Requied, Forward primer sequence for cutadaptor')
 parser.add_argument('--cutpr', type=str,required=True,help='Requied, Reverse primer sequence for cutadaptor')
@@ -24,7 +23,11 @@ parser.add_argument('--truncf', type=str,required=True,help='Requied, trunc leng
 parser.add_argument('--truncr', type=str,required=True,help='Requied, trunc length for Read2 in DADA2')
 parser.add_argument('--meta', type=str,required=True,help='Requied, name of the meta file')
 parser.add_argument('--train_classifier', type=str,required=True,help='Requied, Yes or No, whether to train classifier')
+parser.add_argument('--database_seq', type=str,required=False, help='If train_classifier is yes, put the name of the database sequence file')
+parser.add_argument('--database_tax', type=str,required=False, help='If train_classifier is yes, put the name of the database taxonomy file')
+parser.add_argument('--pre_trained_classifier', type=str,required=False, help='If train_classifier is no, put the name of the pre_trained_classifier')
 parser.add_argument('--remove_mito_chlo', type=str,required=False, default='No', help='Yes or No, default no, whether to remove mitochondria and chloroplast')
+
 
 
 
@@ -49,10 +52,12 @@ rarefy_repeat_times=100
     
 
 if train_classifier=="Yes" or train_classifier=="YES" or train_classifier=="yes" or train_classifier=="Y" or train_classifier=="y":
-    silvaseq=input("Please input the name of silva seq: ")
-    silvatax=input("Please input the name of silva tax: ")
+    silvaseq=args.database_seq
+    silvatax=args.database_tax
 elif train_classifier=="No" or train_classifier=="NO" or train_classifier=="no" or train_classifier=="N" or train_classifier=="n":
-    trained_classifier=input("Please input the name of trained classfier: ")
+    trained_classifier=args.pre_trained_classifier
+
+
 
     
 
