@@ -56,9 +56,13 @@ See help by: python3 16s-qiime-qutopipeline.py --help
 --meta: Required, name of the meta file
 
 --train_classifier: Required, Yes or No, depending on whether the classifier needs to be trained
+
 --database_seq: Optional. If train_classifier is yes, put the name of the database sequence file
+
 --database_tax: Optional. If train_classifier is yes, put the name of the database taxonomy file
+
 --pre_trained_classifier: Optional. If train_classifier is no, put the name of the pre_trained_classifier
+
 
 --remove_mito_chlo: Optional, Yes or No, default is no; if YES, choose whether mitochondrial sequences, chloroplast sequences or both should be removed
 
