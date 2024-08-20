@@ -30,9 +30,11 @@ iii.	Run the script.
 
 Example:
 
+Without pre-trained classifier:
+
 python3 16s-qiime-autopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=yes --database_seq=silva-138.1-ssu-nr99-seqs.qza --database_tax=silva-138.1-ssu-nr99-tax.qza --remove_mito_chlo=yes
 
-or
+or with pre-trained classifier:
 
 python3 16s-qiime-autopipeline.py --path=/home/test --cutpf=CCTACGGGNGGCWGCAG --cutpr=GACTACHVGGGTATCTAATCC --truncf=260 --truncr=230 --meta=meta.txt --train_classifier=no --pre_trained_classifier=trained_classifier.qza --remove_mito_chlo=yes
 
