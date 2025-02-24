@@ -10,7 +10,7 @@ i.	Put all the fastq.gz files in one folder.
 
 ii.	Create a metadata file in the same folder. It is recommended to use tab delimited .txt format. The file should contain at least two columns. The first column should be dedicated to the sample ID (label the column SampleID, or similar). Sample IDs in the metadata file must match with the fastq.gz file names (name before the index, e.g., "WW1_WW1_UDP0297-UDP0300_L001_R1_001.fastq.gz", "WW1_WW1" is the sample ID that must match the sample ID entry in the metadata file). At least one entry in the second column must be unique. For further details on metadata requirements, please refer to the Qiime tutorial at https://docs.qiime2.org/2022.11/tutorials/metadata/
 
-iii.	If it is the first time using the primer set, the classifier must be trained. Please download the silva seq and taxa files from the link below and place them in the same folder as the files above. If it is not the first time, an existing trained classifier file must be placed in the same folder.
+iii.	If it is the first time using the primer set, the classifier must be trained. Please download the seq and taxa files for silva database or gtdb database from the link below and place them in the same folder as the files above. If it is not the first time, an existing trained classifier file must be placed in the same folder.
 https://kaust-my.sharepoint.com/:f:/g/personal/zhaox0b_kaust_edu_sa/EtkYH84FycpPkdRjF1Wwe1EBGVj-bGasFfXEk2b_zobz-A?e=rhOWof
 
 2.	Running the script
